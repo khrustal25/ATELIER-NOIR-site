@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n-content="meta.description" content="ATELIER NOIR — концептуальный сайт студии дизайна интерьеров: квиз стиля, конфигуратор пространства и калькулятор стоимости. Демонстрационный портфолио-проект.">
+  <meta name="theme-color" content="#F7F5F0">
+  <meta name="format-detection" content="telephone=no">
+  <title data-i18n="meta.title">ATELIER NOIR — Студия дизайна интерьеров</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATELIER NOIR">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" data-i18n-content="meta.title" content="ATELIER NOIR — Студия дизайна интерьеров">
+  <meta property="og:description" data-i18n-content="meta.description" content="ATELIER NOIR — концептуальный сайт студии дизайна интерьеров: квиз стиля, конфигуратор пространства и калькулятор стоимости. Демонстрационный портфолио-проект.">
+  <meta property="og:image" content="assets/images/og/og-home.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ATELIER NOIR — Студия дизайна интерьеров">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("atelier-noir-language") === "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("i18n-pending");
+        }, 1500);
+      }
+    } catch (error) {
+      /* storage unavailable */
+    }
+    function markFrame(img) {
+      var frame = img && img.closest ? img.closest(".frame") : null;
+      if (!frame) return;
+      frame.classList.add("is-fallback");
+      var key = img.getAttribute("data-i18n-alt");
+      if (key) frame.setAttribute("data-i18n-aria-label", key);
+      var label = key && window.t ? window.t(key) : img.alt;
+      if (label) frame.setAttribute("aria-label", label);
+      img.remove();
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content" data-i18n="skip">К содержанию</a>
+
+  <header class="header">
+    <div class="header__bar">
+      <a class="logo" href="#top" translate="no">Atelier Noir</a>
+
+      <div class="header__end">
+        <div class="lang" role="group" data-i18n-aria-label="lang.group" aria-label="Язык интерфейса">
+          <button class="lang__btn" type="button" data-lang="ru" lang="ru" aria-pressed="true">RU</button>
+          <span class="lang__slash" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="site-nav" data-i18n-aria-label="nav.main" aria-label="Основная навигация">
+      <a class="link" href="#top" data-nav="top" data-i18n="nav.home">Главная</a>
+      <a class="link" href="#studio" data-nav="studio" data-i18n="nav.studio">Студия</a>
+      <a class="link" href="#projects" data-nav="projects" data-i18n="nav.projects">Проекты</a>
+      <a class="link" href="#tools" data-nav="tools" data-i18n="nav.tools">Инструменты</a>
+      <a class="link" href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
+      <p class="nav__note" data-i18n="nav.note">Премиальная студия дизайна интерьеров</p>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="hero" id="top" data-spy aria-labelledby="hero-title">
+      <div class="hero__media">
+        <div class="frame frame--hero">
+          <img
+            src="assets/images/hero.webp"
+            alt="Гостиная с панорамным остеклением, мягкой мебелью и видом на море и горы"
+            data-i18n-alt="hero.alt"
+            width="1280"
+            height="720"
+            fetchpriority="high"
+            decoding="async"
+            onerror="markFrame(this)">
+          <p class="frame__note" aria-hidden="true">hero.webp</p>
+        </div>
+      </div>
+
+      <div class="hero__plate">
+        <div class="hero__kicker">
+          <p class="eyebrow" data-i18n="hero.kicker">Студия дизайна интерьеров</p>
+          <a class="scroll-hint" href="#studio">
+            <span data-i18n="hero.scroll">Листать</span>
+            <span class="scroll-hint__line" aria-hidden="true"></span>
+          </a>
+        </div>
+
+        <div class="hero__grid">
+          <h1 class="hero__title" id="hero-title">
+            <span data-i18n="hero.title.1">Пространство,</span><br>
+            <span data-i18n="hero.title.2">в котором хочется</span><br>
+            <em data-i18n="hero.title.3">остаться</em>
+          </h1>
+          <div class="hero__aside">
+            <p class="hero__lede" data-i18n="hero.lede">Создаём интерьеры, в которых архитектура, эстетика и ваш образ жизни становятся единым целым.</p>
+            <a class="btn" href="#tools">
+              <span data-i18n="hero.cta">Исследовать возможности</span>
+              <span class="btn__line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="studio" id="studio" data-spy aria-labelledby="studio-title">
+      <div class="wrap">
+        <div class="section-kicker">
+          <p class="eyebrow" data-i18n="studio.kicker">01 / О студии</p>
+          <span class="section-kicker__line" aria-hidden="true"></span>
+        </div>
+
+        <div class="studio__layout reveal">
+          <div class="studio__heading">
+            <h2 class="studio__title" id="studio-title"><span data-i18n="studio.title.1">Искусство создавать</span><br><span data-i18n="studio.title.2">пространство</span><br><span data-i18n="studio.title.3">для жизни</span></h2>
+          </div>
+
+          <figure class="studio__figure">
+            <div class="frame frame--studio">
+              <img
+                src="assets/images/studio.webp"
+                alt="Светлый лестничный холл с каменными ступенями и угловым остеклением"
+                data-i18n-alt="studio.alt"
+                width="2000"
+                height="1499"
+                loading="lazy"
+                decoding="async"
+                onerror="markFrame(this)">
+              <p class="frame__note" aria-hidden="true">studio.webp</p>
+            </div>
+            <figcaption class="studio__caption" data-i18n="studio.caption">Концептуальная визуализация</figcaption>
+          </figure>
+
+          <div class="studio__text">
+            <hr class="studio__rule">
+            <p data-i18n="studio.p1">Мы верим, что интерьер — это больше, чем сочетание материалов и форм. Это пространство, которое отражает характер, привычки и индивидуальность человека.</p>
+            <p data-i18n="studio.p2">В основе нашего подхода — архитектурная ясность, натуральные материалы и внимание к деталям.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="projects" id="projects" data-spy aria-labelledby="projects-title">
+      <div class="wrap">
+        <div class="projects__intro reveal">
+          <p class="eyebrow" data-i18n="projects.kicker">02 / Избранные проекты</p>
+          <div class="projects__copy">
+            <h2 class="projects__title" id="projects-title"><span data-i18n="projects.title.1">Пространства</span><br><span data-i18n="projects.title.2">с характером</span></h2>
+            <p class="projects__lede" data-i18n="projects.lede">Каждый интерьер — диалог архитектуры, материалов и индивидуальности.</p>
+            <p class="projects__disclaimer" data-i18n="projects.disclaimer">Концептуальные визуализации, не реализованные проекты студии.</p>
+          </div>
+        </div>
+
+        <div class="projects__gallery reveal">
+          <article class="project project--lead">
+            <div class="frame frame--p1">
+              <img
+                src="assets/images/project-01.webp"
+                alt="Тихая резиденция — тёплая гостиная с камином и панорамным светом, концептуальная визуализация"
+                data-i18n-alt="project.01.alt"
+                width="1280"
+                height="853"
+                loading="lazy"
+                decoding="async"
+                onerror="markFrame(this)">
+              <p class="frame__note" aria-hidden="true">project-01.webp</p>
+            </div>
+            <div class="project__meta">
+              <p class="project__index">01</p>
+              <h3 class="project__title" data-i18n="project.01.title">Тихая резиденция</h3>
+              <p class="project__style" data-i18n="project.01.style">Тёплый минимализм</p>
+              <p class="project__note" data-i18n="project.caption">Концептуальная визуализация</p>
+            </div>
+          </article>
+
+          <article class="project project--offset">
+            <div class="frame frame--p2">
+              <img
+                src="assets/images/project-02.webp"
+                alt="Дом гармонии — гостиная с мягкими формами и видом в сад, концептуальная визуализация"
+                data-i18n-alt="project.02.alt"
+                width="1600"
+                height="1200"
+                loading="lazy"
+                decoding="async"
+                onerror="markFrame(this)">
+              <p class="frame__note" aria-hidden="true">project-02.webp</p>
+            </div>
+            <div class="project__meta">
+              <p class="project__index">02</p>
+              <h3 class="project__title" data-i18n="project.02.title">Дом гармонии</h3>
+              <p class="project__style" data-i18n="project.02.style">Современный интерьер</p>
+              <p class="project__note" data-i18n="project.caption">Концептуальная визуализация</p>
+            </div>
+          </article>
+
+          <article class="project project--wide">
+            <div class="frame frame--p3">
+              <img
+                src="assets/images/project-03.webp"
+                alt="Камень и свет — каменная стена, камин и свет из сада, концептуальная визуализация"
+                data-i18n-alt="project.03.alt"
+                width="1078"
+                height="516"
+                loading="lazy"
+                decoding="async"
+                onerror="markFrame(this)">
+              <p class="frame__note" aria-hidden="true">project-03.webp</p>
+            </div>
+            <div class="project__meta">
+              <p class="project__index">03</p>
+              <h3 class="project__title" data-i18n="project.03.title">Камень и свет</h3>
+              <p class="project__style" data-i18n="project.03.style">Современная архитектура</p>
+              <p class="project__note" data-i18n="project.caption">Концептуальная визуализация</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="tools" id="tools" data-spy aria-labelledby="tools-title">
+      <div class="tools__intro reveal">
+        <p class="eyebrow" data-i18n="tools.kicker">03 / Интерактивная студия</p>
+        <h2 class="tools__title" id="tools-title" data-i18n="tools.title">Ваш интерьер начинается здесь</h2>
+        <p class="tools__lede" data-i18n="tools.lede">Исследуйте свой стиль, подберите материалы и узнайте ориентировочную стоимость будущего проекта.</p>
+      </div>
+
+      <article class="tool reveal" id="tool-style" aria-labelledby="tool-style-title">
+        <div class="tool__media">
+          <div class="frame frame--tool">
+            <img
+              src="assets/images/quiz-preview.webp"
+              alt="Превью квиза: светлая гостиная с травертином и мягкой мебелью"
+              data-i18n-alt="tools.style.alt"
+              width="1024"
+              height="1024"
+              loading="lazy"
+              decoding="async"
+              onerror="markFrame(this)">
+            <p class="frame__note" aria-hidden="true">quiz-preview.webp</p>
+          </div>
+        </div>
+        <div class="tool__body">
+          <p class="tool__kicker"><span>01</span> <span data-i18n="tools.style.kicker">Найдите свой стиль</span></p>
+          <h3 class="tool__title" id="tool-style-title" data-i18n="tools.style.title">Почувствуйте свою эстетику</h3>
+          <p class="tool__text" data-i18n="tools.style.text">Ответьте на несколько вопросов и узнайте, какая интерьерная эстетика ближе именно вам.</p>
+          <a class="btn" href="quiz.html">
+            <span data-i18n="tools.style.cta">Пройти квиз</span>
+            <span class="btn__line" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+
+      <article class="tool tool--reverse reveal" id="tool-space" aria-labelledby="tool-space-title">
+        <div class="tool__body">
+          <p class="tool__kicker"><span>02</span> <span data-i18n="tools.space.kicker">Создайте своё пространство</span></p>
+          <h3 class="tool__title" id="tool-space-title" data-i18n="tools.space.title">Соберите своё пространство</h3>
+          <p class="tool__text" data-i18n="tools.space.text">Экспериментируйте с цветами, материалами и деталями будущего интерьера.</p>
+          <a class="btn" href="configurator.html">
+            <span data-i18n="tools.space.cta">Открыть конфигуратор</span>
+            <span class="btn__line" aria-hidden="true"></span>
+          </a>
+        </div>
+        <div class="tool__media">
+          <div class="frame frame--tool">
+            <img
+              src="assets/images/configurator-preview.webp"
+              alt="Превью конфигуратора: кухня из камня и дерева"
+              data-i18n-alt="tools.space.alt"
+              width="1450"
+              height="805"
+              loading="lazy"
+              decoding="async"
+              onerror="markFrame(this)">
+            <p class="frame__note" aria-hidden="true">configurator-preview.webp</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="tool reveal" id="tool-estimate" aria-labelledby="tool-estimate-title">
+        <div class="tool__media">
+          <div class="frame frame--tool">
+            <img
+              src="assets/images/calculator-preview.webp"
+              alt="Превью калькулятора: кухня с каменным островом и деревянной мебелью"
+              data-i18n-alt="tools.estimate.alt"
+              width="900"
+              height="720"
+              loading="lazy"
+              decoding="async"
+              onerror="markFrame(this)">
+            <p class="frame__note" aria-hidden="true">calculator-preview.webp</p>
+          </div>
+        </div>
+        <div class="tool__body">
+          <p class="tool__kicker"><span>03</span> <span data-i18n="tools.estimate.kicker">Рассчитайте стоимость проекта</span></p>
+          <h3 class="tool__title" id="tool-estimate-title" data-i18n="tools.estimate.title">Оцените стоимость</h3>
+          <p class="tool__text" data-i18n="tools.estimate.text">Получите предварительную оценку дизайн-проекта на основе ваших предпочтений.</p>
+          <a class="btn" href="calculator.html">
+            <span data-i18n="tools.estimate.cta">Рассчитать проект</span>
+            <span class="btn__line" aria-hidden="true"></span>
+          </a>
+        </div>
+      </article>
+    </section>
+
+    <section class="approach" id="approach" data-spy aria-labelledby="approach-title">
+      <div class="wrap">
+        <div class="approach__head reveal">
+          <p class="eyebrow" data-i18n="approach.kicker">04 / Наш подход</p>
+          <h2 class="approach__title" id="approach-title" data-i18n="approach.title">От идеи к пространству</h2>
+        </div>
+
+        <ol class="approach__grid reveal">
+          <li class="step">
+            <span class="step__num" aria-hidden="true">01</span>
+            <h3 class="step__title" data-i18n="approach.discover.title">Исследование</h3>
+            <p class="step__text" data-i18n="approach.discover.text">Исследуем предпочтения и образ жизни.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">02</span>
+            <h3 class="step__title" data-i18n="approach.personalize.title">Персонализация</h3>
+            <p class="step__text" data-i18n="approach.personalize.text">Подбираем материалы и цветовые решения.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">03</span>
+            <h3 class="step__title" data-i18n="approach.estimate.title">Расчёт стоимости</h3>
+            <p class="step__text" data-i18n="approach.estimate.text">Формируем предварительную оценку проекта.</p>
+          </li>
+          <li class="step">
+            <span class="step__num" aria-hidden="true">04</span>
+            <h3 class="step__title" data-i18n="approach.refine.title">Доработка концепции</h3>
+            <p class="step__text" data-i18n="approach.refine.text">Собираем единую концепцию пространства.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="finale" aria-labelledby="finale-title">
+      <div class="wrap">
+        <div class="finale__inner reveal">
+          <h2 class="finale__title" id="finale-title" data-i18n="finale.title">У каждого пространства есть своя история</h2>
+          <p class="finale__lead" data-i18n="finale.lead">Начните создавать свою.</p>
+          <a class="btn" href="#tools">
+            <span data-i18n="finale.cta">Исследовать возможности</span>
+            <span class="btn__line" aria-hidden="true"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" data-spy data-i18n-aria-label="footer.label" aria-label="Контакт и сведения">
+    <div class="wrap">
+      <a class="footer__logo" href="#top" translate="no">Atelier Noir</a>
+      <p class="footer__tag" data-i18n="footer.tag">Премиальная студия дизайна интерьеров</p>
+
+      <nav class="footer__nav" data-i18n-aria-label="nav.footer" aria-label="Навигация в подвале">
+        <a class="link" href="#top" data-nav="top" data-i18n="nav.home">Главная</a>
+        <a class="link" href="#studio" data-nav="studio" data-i18n="nav.studio">Студия</a>
+        <a class="link" href="#projects" data-nav="projects" data-i18n="nav.projects">Проекты</a>
+        <a class="link" href="#tools" data-nav="tools" data-i18n="nav.tools">Инструменты</a>
+        <a class="link" href="#approach" data-nav="approach" data-i18n="nav.approach">Подход</a>
+        <a class="link" href="#contact" data-nav="contact" data-i18n="nav.contact">Контакт</a>
+      </nav>
+
+      <div class="footer__bottom">
+        <p class="footer__legal" data-i18n="footer.legal">Концептуальный проект для портфолио. Все представленные работы являются демонстрационными.</p>
+        <p class="footer__copy" translate="no">© Atelier Noir</p>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      html.i18n-pending body { visibility: visible !important; }
+    </style>
+  </noscript>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n-content="cfg.meta.description" content="Конфигуратор ATELIER NOIR: подберите стены, пол, диван, свет и декор и посмотрите, как меняется интерьер. Концептуальный портфолио-проект.">
+  <meta name="theme-color" content="#F7F5F0">
+  <meta name="format-detection" content="telephone=no">
+  <title data-i18n="cfg.meta.title">ATELIER NOIR — Создайте своё пространство</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATELIER NOIR">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" data-i18n-content="cfg.meta.title" content="ATELIER NOIR — Создайте своё пространство">
+  <meta property="og:description" data-i18n-content="cfg.meta.description" content="Конфигуратор ATELIER NOIR: подберите стены, пол, диван, свет и декор и посмотрите, как меняется интерьер. Концептуальный портфолио-проект.">
+  <meta property="og:image" content="assets/images/og/og-configurator.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ATELIER NOIR — Создайте своё пространство">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("atelier-noir-language") === "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("i18n-pending");
+        }, 1500);
+      }
+    } catch (error) {
+      /* storage unavailable */
+    }
+    function markFrame(img) {
+      var frame = img && img.closest ? img.closest(".frame") : null;
+      if (!frame) return;
+      frame.classList.add("is-fallback");
+      var key = img.getAttribute("data-i18n-alt");
+      if (key) frame.setAttribute("data-i18n-aria-label", key);
+      var label = key && window.t ? window.t(key) : img.alt;
+      if (label) frame.setAttribute("aria-label", label);
+      img.remove();
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content" data-i18n="skip">К содержанию</a>
+
+  <header class="header">
+    <div class="header__bar">
+      <a class="logo" href="index.html" translate="no">Atelier Noir</a>
+
+      <div class="header__end">
+        <div class="lang" role="group" data-i18n-aria-label="lang.group" aria-label="Язык интерфейса">
+          <button class="lang__btn" type="button" data-lang="ru" lang="ru" aria-pressed="true">RU</button>
+          <span class="lang__slash" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="site-nav" data-i18n-aria-label="nav.main" aria-label="Основная навигация">
+      <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+      <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+      <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+      <a class="link" href="index.html#tools" data-i18n="nav.tools" aria-current="true">Инструменты</a>
+      <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      <p class="nav__note" data-i18n="nav.note">Премиальная студия дизайна интерьеров</p>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="config" aria-labelledby="cfg-title">
+      <div class="wrap config__head">
+        <p class="eyebrow" data-i18n="cfg.kicker">Создайте своё пространство</p>
+        <h1 class="config__title" id="cfg-title" data-i18n="cfg.title">Соберите своё пространство</h1>
+        <p class="config__lede" data-i18n="cfg.lede">Исследуйте сочетания материалов, цветов и деталей, чтобы найти настроение вашего будущего интерьера.</p>
+      </div>
+
+      <div class="wrap config__layout">
+        <div class="config__stage">
+          <svg class="config__scene scene" id="cfg-scene" viewBox="0 0 1400 920" role="img" data-i18n-aria-label="cfg.scene" aria-label="Интерактивная гостиная. Меняйте стены, пол, диван, свет и декор." data-wall="sand" data-flooring="light-oak" data-sofa="cream" data-lighting="soft-ambient" data-decor="minimal" preserveAspectRatio="xMidYMid meet">
+            <defs>
+              <linearGradient id="cfg-sky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#efe4d2"/>
+                <stop offset="0.48" stop-color="#d5cbbb"/>
+                <stop offset="1" stop-color="#b7c2c4"/>
+              </linearGradient>
+              <linearGradient id="cfg-sea" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c5d0d2"/>
+                <stop offset="1" stop-color="#9eadae"/>
+              </linearGradient>
+              <linearGradient id="cfg-hill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#a39886"/>
+                <stop offset="1" stop-color="#7d7466"/>
+              </linearGradient>
+              <linearGradient id="cfg-glass" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#ffffff" stop-opacity="0.22"/>
+                <stop offset="0.45" stop-color="#ffffff" stop-opacity="0.02"/>
+                <stop offset="1" stop-color="#d7ecec" stop-opacity="0.12"/>
+              </linearGradient>
+              <linearGradient id="cfg-sofa-grad" x1="0.2" y1="0" x2="0.8" y2="1">
+                <stop offset="0" stop-color="var(--cfg-sofa-lit)"/>
+                <stop offset="1" stop-color="var(--cfg-sofa)"/>
+              </linearGradient>
+              <linearGradient id="cfg-stone-top" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ece6dc"/>
+                <stop offset="0.55" stop-color="#d8d0c4"/>
+                <stop offset="1" stop-color="#c4bbb0"/>
+              </linearGradient>
+              <linearGradient id="cfg-metal" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#d9cbb6"/>
+                <stop offset="0.5" stop-color="#8b7665"/>
+                <stop offset="1" stop-color="#4a4038"/>
+              </linearGradient>
+              <linearGradient id="cfg-wood" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#c4a484"/>
+                <stop offset="1" stop-color="#6e4e38"/>
+              </linearGradient>
+              <radialGradient id="cfg-sun" cx="0.62" cy="0.22" r="0.55">
+                <stop offset="0" stop-color="#fff4dc" stop-opacity="0.85"/>
+                <stop offset="1" stop-color="#fff4dc" stop-opacity="0"/>
+              </radialGradient>
+              <linearGradient id="cfg-sheer" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#f7f3ec" stop-opacity="0.08"/>
+                <stop offset="0.5" stop-color="#ffffff" stop-opacity="0.42"/>
+                <stop offset="1" stop-color="#f7f3ec" stop-opacity="0.08"/>
+              </linearGradient>
+              <linearGradient id="cfg-sill" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#efe6d6"/>
+                <stop offset="1" stop-color="#c9bba8"/>
+              </linearGradient>
+              <pattern id="cfg-oak" width="56" height="14" patternUnits="userSpaceOnUse" patternTransform="skewX(-26) scale(1 0.72)">
+                <rect width="56" height="14" fill="#dcc9ab"/>
+                <path d="M0 4 Q14 1 28 5 T56 4" fill="none" stroke="#c4ad8c" stroke-width="1.1"/>
+                <path d="M0 10 Q18 7 36 11 T56 10" fill="none" stroke="#b89a74" stroke-width="0.7"/>
+              </pattern>
+              <pattern id="cfg-walnut" width="56" height="14" patternUnits="userSpaceOnUse" patternTransform="skewX(-26) scale(1 0.72)">
+                <rect width="56" height="14" fill="#6a4a34"/>
+                <path d="M0 3 Q16 0 32 4 T56 3" fill="none" stroke="#513626" stroke-width="1.2"/>
+                <path d="M0 9 Q20 6 40 10 T56 9" fill="none" stroke="#7a5740" stroke-width="0.8"/>
+              </pattern>
+              <pattern id="cfg-stone" width="90" height="70" patternUnits="userSpaceOnUse">
+                <rect width="90" height="70" fill="#d4cdc2"/>
+                <path d="M8 18 C 22 8, 40 28, 58 16 C 70 10, 82 22, 88 18" fill="none" stroke="#b7aea2" stroke-width="1.4"/>
+                <path d="M4 48 C 24 40, 36 58, 62 46 C 74 40, 86 54, 90 50" fill="none" stroke="#c9c1b6" stroke-width="1.1"/>
+                <circle cx="28" cy="32" r="7" fill="#c1b8aa" opacity="0.45"/>
+                <circle cx="64" cy="52" r="10" fill="#ddd6cb" opacity="0.4"/>
+              </pattern>
+              <clipPath id="cfg-window">
+                <rect x="378" y="128" width="644" height="252" rx="2"/>
+              </clipPath>
+              <clipPath id="cfg-floor">
+                <path d="M0 920 L1400 920 L1088 392 L312 392 Z"/>
+              </clipPath>
+              <filter id="cfg-soft" x="-25%" y="-25%" width="150%" height="150%">
+                <feGaussianBlur stdDeviation="10"/>
+              </filter>
+              <filter id="cfg-glow" x="-40%" y="-40%" width="180%" height="180%">
+                <feGaussianBlur stdDeviation="18"/>
+              </filter>
+              <filter id="cfg-haze" x="-10%" y="-10%" width="120%" height="120%">
+                <feGaussianBlur stdDeviation="6"/>
+              </filter>
+            </defs>
+
+            <g clip-path="url(#cfg-window)">
+              <rect x="378" y="128" width="644" height="252" fill="url(#cfg-sky)"/>
+              <rect x="378" y="128" width="644" height="252" fill="url(#cfg-sun)"/>
+              <path d="M378 250 C 448 228, 510 242, 572 214 C 650 182, 718 228, 792 206 C 868 184, 948 230, 1022 242 L 1022 380 L 378 380 Z" fill="url(#cfg-hill)"/>
+              <path d="M378 256 C 500 268, 640 248, 790 264 C 910 276, 980 254, 1022 266 L 1022 380 L 378 380 Z" fill="url(#cfg-sea)"/>
+              <path d="M426 258 C 434 214, 452 186, 464 258 Z" fill="#5a5348"/>
+              <path d="M448 258 C 456 198, 480 168, 492 258 Z" fill="#6a6358"/>
+              <path d="M468 258 C 476 224, 488 196, 498 258 Z" fill="#4e4840"/>
+              <path d="M908 260 C 918 214, 940 186, 952 260 Z" fill="#5a5348"/>
+              <path d="M938 260 C 946 208, 968 176, 980 260 Z" fill="#4a443c"/>
+            </g>
+
+            <path class="ceiling" d="M0 0 H1400 L1088 108 H312 Z"/>
+            <path class="wall-deep" d="M430 108 H970 V116 H430 Z" opacity="0.35"/>
+            <path class="wall-main" d="M312 108 H1088 V392 H312 Z"/>
+            <path class="wall-shade" d="M312 108 H372 V392 H312 Z" opacity="0.5"/>
+            <path class="wall-shade" d="M1028 108 H1088 V392 H1028 Z" opacity="0.38"/>
+            <path class="wall-main" d="M0 0 L312 108 V392 L0 920 Z"/>
+            <path class="wall-shade" d="M170 42 L312 108 V392 L80 780 Z" opacity="0.26"/>
+            <path class="wall-main" d="M1400 0 L1088 108 V392 L1400 920 Z"/>
+            <path class="wall-shade" d="M1230 42 L1088 108 V392 L1320 780 Z" opacity="0.2"/>
+
+            <g class="floor-layer floor-oak">
+              <path d="M0 920 L1400 920 L1088 392 L312 392 Z" fill="url(#cfg-oak)"/>
+            </g>
+            <g class="floor-layer floor-walnut">
+              <path d="M0 920 L1400 920 L1088 392 L312 392 Z" fill="url(#cfg-walnut)"/>
+            </g>
+            <g class="floor-layer floor-stone">
+              <path d="M0 920 L1400 920 L1088 392 L312 392 Z" fill="url(#cfg-stone)"/>
+            </g>
+            <path clip-path="url(#cfg-floor)" fill="#291c12" opacity="0.07" d="M0 920 L1400 920 L1088 392 L312 392 Z"/>
+
+            <g class="light-layer light-soft">
+              <polygon clip-path="url(#cfg-floor)" fill="#f4e6c8" opacity="0.3" points="378,380 1022,380 1240,920 160,920"/>
+            </g>
+            <g class="light-layer light-arch">
+              <polygon clip-path="url(#cfg-floor)" fill="#f7f2ea" opacity="0.46" points="378,380 1022,380 1280,920 120,920"/>
+              <rect x="420" y="102" width="560" height="7" rx="3" fill="#f4efe6" opacity="0.92"/>
+            </g>
+            <g class="light-layer light-deco">
+              <polygon clip-path="url(#cfg-floor)" fill="#e8c98a" opacity="0.16" points="378,380 1022,380 1180,920 220,920"/>
+              <ellipse cx="700" cy="800" rx="160" ry="40" fill="#f0d9a8" opacity="0.32" filter="url(#cfg-glow)"/>
+            </g>
+
+            <path class="skirting" d="M0 896 L22 882 L298 404 L312 392 V410 L28 920 Z"/>
+            <path class="skirting" d="M1400 896 L1378 882 L1102 404 L1088 392 V410 L1372 920 Z"/>
+            <path class="skirting" d="M312 378 H1088 V392 H312 Z"/>
+
+            <path class="wall-deep" d="M348 116 H1052 V128 H348 Z"/>
+            <g class="window-frame" fill="#c9bba8">
+              <path d="M348 108 H1052 V128 H348 Z"/>
+              <path d="M348 372 H1052 V396 H348 Z"/>
+              <path d="M348 108 H372 V396 H348 Z"/>
+              <path d="M1028 108 H1052 V396 H1028 Z"/>
+              <rect x="568" y="128" width="14" height="244"/>
+              <rect x="818" y="128" width="14" height="244"/>
+            </g>
+            <path fill="url(#cfg-sill)" d="M340 390 H1060 L1074 408 H326 Z"/>
+            <rect x="378" y="128" width="644" height="244" fill="url(#cfg-glass)"/>
+            <path d="M402 140 L528 248" stroke="#ffffff" stroke-opacity="0.3" stroke-width="7"/>
+            <path d="M846 136 L980 228" stroke="#ffffff" stroke-opacity="0.18" stroke-width="5"/>
+
+            <g fill="url(#cfg-sheer)" opacity="0.9">
+              <path d="M372 128 C 392 170, 382 230, 404 372 L 372 372 Z"/>
+              <path d="M402 128 C 424 176, 412 240, 438 372 L 404 372 C 390 240, 404 176, 390 128 Z"/>
+              <path d="M998 128 C 978 170, 988 230, 966 372 L 998 372 Z"/>
+              <path d="M968 128 C 946 176, 958 240, 932 372 L 966 372 C 980 240, 966 176, 980 128 Z"/>
+            </g>
+
+            <g class="decor-set decor-artistic">
+              <path class="wall-deep" d="M64 198 L206 242 L204 400 L66 372 Z"/>
+              <path fill="#efe6d6" d="M80 216 L190 254 L188 384 L80 360 Z"/>
+              <path fill="#c4a484" d="M104 244 L166 264 L148 322 L98 306 Z"/>
+              <path fill="#5a5550" d="M116 300 L160 314 L154 356 L112 344 Z"/>
+              <path fill="#8b7665" d="M128 268 L150 276 L142 298 L122 288 Z"/>
+            </g>
+
+            <g class="lamp-arch">
+              <path d="M420 106 H980" stroke="#d9cbb6" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+              <ellipse cx="700" cy="116" rx="110" ry="9" fill="#f7f3ec" opacity="0.5" filter="url(#cfg-haze)"/>
+            </g>
+
+            <ellipse cx="700" cy="828" rx="410" ry="72" fill="#3a2d22" opacity="0.15" filter="url(#cfg-soft)"/>
+            <path fill="#c4b8a4" d="M230 800 C 380 702, 1020 690, 1210 804 C 1234 844, 1020 900, 700 908 C 380 916, 206 850, 230 800 Z"/>
+            <path fill="#ddd2c0" opacity="0.5" d="M300 802 C 430 732, 980 722, 1130 806 C 1088 850, 900 872, 700 876 C 500 880, 340 846, 300 802 Z"/>
+
+            <ellipse cx="176" cy="778" rx="78" ry="18" fill="#3a2d22" opacity="0.18" filter="url(#cfg-soft)"/>
+            <path fill="#7a5740" d="M132 690 L220 690 L234 770 L118 770 Z"/>
+            <path fill="#5a3e2c" d="M122 770 H230 L222 786 H130 Z"/>
+            <g fill="#6f7d60">
+              <ellipse cx="176" cy="548" rx="16" ry="58" transform="rotate(-22 176 548)"/>
+              <ellipse cx="150" cy="572" rx="14" ry="50" transform="rotate(18 150 572)"/>
+              <ellipse cx="204" cy="560" rx="13" ry="52" transform="rotate(-10 204 560)"/>
+              <ellipse cx="162" cy="610" rx="18" ry="40" transform="rotate(26 162 610)"/>
+              <ellipse cx="194" cy="618" rx="12" ry="38" transform="rotate(-28 194 618)"/>
+              <ellipse cx="176" cy="640" rx="20" ry="34"/>
+              <ellipse cx="140" cy="630" rx="11" ry="28" transform="rotate(32 140 630)"/>
+              <ellipse cx="212" cy="626" rx="11" ry="30" transform="rotate(-30 212 626)"/>
+            </g>
+            <path d="M176 690 C 160 640, 184 610, 176 572" fill="none" stroke="#4e4840" stroke-width="3"/>
+
+            <g class="lamp-soft">
+              <path d="M1236 806 L1236 430 Q 1236 250 980 292" fill="none" stroke="url(#cfg-metal)" stroke-width="8" stroke-linecap="round"/>
+              <ellipse cx="1236" cy="812" rx="34" ry="9" fill="#2c2824"/>
+              <path class="lamp-shade" d="M932 292 C 932 262, 1028 262, 1028 292 L 1014 328 H946 Z"/>
+              <ellipse cx="980" cy="292" rx="48" ry="9" fill="#f7f3ec" opacity="0.55"/>
+            </g>
+            <g class="light-layer light-soft">
+              <ellipse cx="980" cy="360" rx="90" ry="70" fill="#f3e1b8" opacity="0.16" filter="url(#cfg-glow)"/>
+            </g>
+            <g class="light-layer light-deco">
+              <ellipse cx="980" cy="350" rx="110" ry="90" fill="#f0d9a8" opacity="0.3" filter="url(#cfg-glow)"/>
+            </g>
+
+            <g class="lamp-deco">
+              <line x1="700" y1="108" x2="700" y2="448" stroke="#8b7665" stroke-width="2.2"/>
+              <path fill="#8b7665" d="M650 448 C 650 416, 750 416, 750 448 L 736 502 H664 Z"/>
+              <ellipse cx="700" cy="448" rx="50" ry="10" fill="#d9cbb6"/>
+              <ellipse cx="700" cy="520" rx="88" ry="54" fill="#f0d9a8" opacity="0.2" filter="url(#cfg-glow)"/>
+            </g>
+
+            <ellipse cx="1110" cy="780" rx="100" ry="24" fill="#3a2d22" opacity="0.18" filter="url(#cfg-soft)"/>
+            <path class="chair-shade" d="M1034 650 C 1022 588, 1180 568, 1236 638 C 1274 692, 1228 792, 1136 806 C 1046 820, 1024 718, 1034 650 Z"/>
+            <path class="chair-fill" d="M1048 660 C 1040 606, 1168 592, 1212 650 C 1248 698, 1210 778, 1132 790 C 1056 802, 1044 714, 1048 660 Z"/>
+            <path class="chair-lit" d="M1072 662 C 1090 618, 1184 616, 1200 664 C 1208 696, 1154 720, 1112 722 C 1072 724, 1062 694, 1072 662 Z"/>
+            <rect x="1088" y="786" width="10" height="28" rx="3" fill="#4a4038"/>
+            <rect x="1158" y="786" width="10" height="28" rx="3" fill="#4a4038"/>
+
+            <ellipse cx="700" cy="792" rx="340" ry="34" fill="#3a2d22" opacity="0.2" filter="url(#cfg-soft)"/>
+            <path class="sofa-fill" d="M348 628 C 362 528, 540 486, 700 490 C 872 494, 1050 536, 1064 632 C 1074 678, 980 704, 700 708 C 420 712, 338 676, 348 628 Z"/>
+            <path class="sofa-shade" d="M368 668 C 430 618, 970 618, 1032 672 C 1044 708, 920 744, 700 748 C 480 752, 356 708, 368 668 Z" opacity="0.4"/>
+            <path class="sofa-fill" d="M318 610 C 298 590, 290 668, 320 718 C 344 754, 400 748, 412 702 C 424 656, 352 624, 318 610 Z"/>
+            <path class="sofa-fill" d="M1084 610 C 1104 590, 1112 668, 1082 718 C 1058 754, 1002 748, 990 702 C 978 656, 1050 624, 1084 610 Z"/>
+            <path class="sofa-lit" d="M430 598 C 510 548, 890 548, 972 600 C 944 632, 820 648, 700 650 C 580 652, 456 632, 430 598 Z"/>
+            <path class="sofa-lit" d="M424 678 C 468 656, 560 650, 612 670 C 624 698, 540 718, 468 716 C 424 714, 410 694, 424 678 Z"/>
+            <path class="sofa-lit" d="M636 674 C 680 652, 760 652, 804 674 C 814 700, 744 720, 684 720 C 632 720, 620 694, 636 674 Z"/>
+            <path class="sofa-lit" d="M828 670 C 880 652, 972 656, 1004 682 C 1014 708, 932 722, 870 720 C 818 718, 808 690, 828 670 Z"/>
+            <path class="sofa-piping" d="M420 602 C 520 556, 880 556, 982 604" stroke-width="2.2" opacity="0.65"/>
+            <rect x="430" y="742" width="12" height="32" rx="3" fill="#4a4038"/>
+            <rect x="678" y="748" width="12" height="30" rx="3" fill="#4a4038"/>
+            <rect x="958" y="742" width="12" height="32" rx="3" fill="#4a4038"/>
+            <path fill="#8b7665" opacity="0.9" d="M392 656 C 430 612, 530 668, 508 722 C 478 756, 378 730, 392 656 Z"/>
+
+            <ellipse cx="700" cy="824" rx="176" ry="24" fill="#3a2d22" opacity="0.16" filter="url(#cfg-soft)"/>
+            <ellipse cx="700" cy="816" rx="176" ry="36" fill="#b7aea2"/>
+            <ellipse cx="700" cy="800" rx="180" ry="38" fill="url(#cfg-stone-top)"/>
+            <path fill="#c4bbb0" d="M648 808 C 644 790, 668 786, 672 808 L 668 848 C 664 856, 652 856, 650 848 Z"/>
+            <path fill="#c4bbb0" d="M728 808 C 724 790, 748 786, 752 808 L 748 848 C 744 856, 732 856, 730 848 Z"/>
+
+            <g class="decor-set decor-minimal">
+              <ellipse cx="700" cy="788" rx="24" ry="8" fill="#8c6e54"/>
+              <path fill="#d8d0c4" d="M684 748 C 684 724, 716 724, 716 748 L 712 786 H688 Z"/>
+              <ellipse cx="700" cy="748" rx="16" ry="6" fill="#eee8de"/>
+              <path d="M700 744 C 690 714, 716 702, 706 676" fill="none" stroke="#5d564c" stroke-width="2"/>
+              <ellipse cx="698" cy="666" rx="11" ry="18" fill="#6f7d60" transform="rotate(-18 698 666)"/>
+            </g>
+
+            <g class="decor-set decor-contemporary">
+              <rect x="608" y="764" width="52" height="9" rx="1" fill="#efeae2"/>
+              <rect x="614" y="754" width="44" height="10" rx="1" fill="#c4a484"/>
+              <rect x="620" y="744" width="36" height="10" rx="1" fill="#5a5550"/>
+              <ellipse cx="772" cy="786" rx="38" ry="11" fill="#8b7665" opacity="0.5"/>
+              <ellipse cx="772" cy="778" rx="30" ry="9" fill="#d9cbb6"/>
+              <path fill="#5a5550" d="M758 738 C 758 716, 786 716, 786 738 L 782 776 H762 Z"/>
+            </g>
+
+            <g class="decor-set decor-artistic">
+              <path fill="#c4a484" d="M652 768 C 638 734, 686 712, 702 748 C 716 778, 670 798, 652 768 Z"/>
+              <path fill="#5a5550" d="M742 778 C 774 724, 824 756, 802 786 C 784 810, 752 804, 742 778 Z"/>
+              <path fill="#e8e0d4" d="M700 708 C 686 672, 728 652, 732 694 C 736 724, 710 732, 700 708 Z"/>
+            </g>
+
+            <g class="decor-set decor-contemporary">
+              <ellipse cx="122" cy="428" rx="40" ry="10" fill="#3a2d22" opacity="0.18"/>
+              <path fill="url(#cfg-wood)" d="M78 400 H170 L166 412 H82 Z"/>
+              <path fill="#d8d0c4" d="M108 354 C 108 332, 144 332, 144 354 L 140 400 H112 Z"/>
+            </g>
+
+            <g class="decor-set decor-artistic">
+              <path fill="#8b7665" d="M1248 424 C 1280 368, 1348 392, 1324 444 C 1304 488, 1256 468, 1248 424 Z"/>
+              <ellipse cx="1284" cy="456" rx="30" ry="8" fill="#3a2d22" opacity="0.22"/>
+            </g>
+          </svg>
+        </div>
+
+        <aside class="config__panel">
+          <div class="cfg-style" id="cfg-style" hidden>
+            <p class="eyebrow" data-i18n="cfg.style.kicker">Ваш стиль</p>
+            <span class="cfg-style__name" id="cfg-style-name">Тёплый минимализм</span>
+            <p class="cfg-style__note" data-i18n="cfg.style.note">Начальная композиция собрана по результату квиза. Любой параметр можно изменить.</p>
+          </div>
+
+          <h2 class="visually-hidden" data-i18n="cfg.params">Параметры</h2>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="cfg.walls">Стены</legend>
+            <div class="cfg-options" role="radiogroup" data-i18n-aria-label="cfg.walls" aria-label="Стены">
+              <button class="cfg-opt" type="button" role="radio" data-cfg="walls" data-value="ivory" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.walls.ivory">Слоновая кость</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="walls" data-value="sand" aria-checked="true">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.walls.sand">Песок</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="walls" data-value="graphite" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.walls.graphite">Графит</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="cfg.flooring">Пол</legend>
+            <div class="cfg-options" role="radiogroup" data-i18n-aria-label="cfg.flooring" aria-label="Пол">
+              <button class="cfg-opt" type="button" role="radio" data-cfg="flooring" data-value="light-oak" aria-checked="true">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.flooring.light-oak">Светлый дуб</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="flooring" data-value="walnut" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.flooring.walnut">Орех</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="flooring" data-value="natural-stone" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.flooring.natural-stone">Натуральный камень</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="cfg.sofa">Диван</legend>
+            <div class="cfg-options" role="radiogroup" data-i18n-aria-label="cfg.sofa" aria-label="Диван">
+              <button class="cfg-opt" type="button" role="radio" data-cfg="sofa" data-value="cream" aria-checked="true">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.sofa.cream">Крем</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="sofa" data-value="caramel" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.sofa.caramel">Карамель</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="sofa" data-value="grey" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.sofa.grey">Серый</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="cfg.lighting">Свет</legend>
+            <div class="cfg-options" role="radiogroup" data-i18n-aria-label="cfg.lighting" aria-label="Свет">
+              <button class="cfg-opt" type="button" role="radio" data-cfg="lighting" data-value="soft-ambient" aria-checked="true">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.lighting.soft-ambient">Мягкий рассеянный</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="lighting" data-value="architectural" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.lighting.architectural">Архитектурный</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="lighting" data-value="decorative" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.lighting.decorative">Декоративный</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="cfg.decor">Декор</legend>
+            <div class="cfg-options" role="radiogroup" data-i18n-aria-label="cfg.decor" aria-label="Декор">
+              <button class="cfg-opt" type="button" role="radio" data-cfg="decor" data-value="minimal" aria-checked="true">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.decor.minimal">Минимальный</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="decor" data-value="contemporary" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.decor.contemporary">Современный</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-cfg="decor" data-value="artistic" aria-checked="false">
+                <span class="cfg-swatch" aria-hidden="true"></span>
+                <span class="cfg-opt__label" data-i18n="cfg.decor.artistic">Художественный</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <h2 class="cfg-list__title" data-i18n="cfg.summary">Выбранные материалы</h2>
+          <dl class="cfg-list">
+            <div>
+              <dt data-i18n="cfg.walls">Стены</dt>
+              <dd id="sum-walls" data-i18n="cfg.walls.sand">Песок</dd>
+            </div>
+            <div>
+              <dt data-i18n="cfg.flooring">Пол</dt>
+              <dd id="sum-flooring" data-i18n="cfg.flooring.light-oak">Светлый дуб</dd>
+            </div>
+            <div>
+              <dt data-i18n="cfg.sofa">Диван</dt>
+              <dd id="sum-sofa" data-i18n="cfg.sofa.cream">Крем</dd>
+            </div>
+            <div>
+              <dt data-i18n="cfg.lighting">Свет</dt>
+              <dd id="sum-lighting" data-i18n="cfg.lighting.soft-ambient">Мягкий рассеянный</dd>
+            </div>
+            <div>
+              <dt data-i18n="cfg.decor">Декор</dt>
+              <dd id="sum-decor" data-i18n="cfg.decor.minimal">Минимальный</dd>
+            </div>
+          </dl>
+
+          <div class="cfg-actions">
+            <button class="btn btn--ghost" id="cfg-reset" type="button" data-i18n="cfg.reset">Сбросить</button>
+            <button class="btn" id="cfg-save" type="button">
+              <span data-i18n="cfg.save">Сохранить</span>
+              <span class="btn__line" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn--ghost" id="cfg-restore" type="button" data-i18n="cfg.restore" disabled>Восстановить</button>
+          </div>
+          <p class="cfg-status" id="cfg-status" role="status" aria-live="polite"></p>
+
+          <div class="cfg-calc">
+            <a class="btn" href="calculator.html">
+              <span data-i18n="cfg.calc">Рассчитать стоимость</span>
+              <span class="btn__line" aria-hidden="true"></span>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" data-i18n-aria-label="footer.label" aria-label="Контакт и сведения">
+    <div class="wrap">
+      <a class="footer__logo" href="index.html" translate="no">Atelier Noir</a>
+      <p class="footer__tag" data-i18n="footer.tag">Премиальная студия дизайна интерьеров</p>
+
+      <nav class="footer__nav" data-i18n-aria-label="nav.footer" aria-label="Навигация в подвале">
+        <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+        <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+        <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+        <a class="link" href="index.html#tools" data-i18n="nav.tools">Инструменты</a>
+        <a class="link" href="index.html#approach" data-i18n="nav.approach">Подход</a>
+        <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      </nav>
+
+      <div class="footer__bottom">
+        <p class="footer__legal" data-i18n="footer.legal">Концептуальный проект для портфолио. Все представленные работы являются демонстрационными.</p>
+        <p class="footer__copy" translate="no">© Atelier Noir</p>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      html.i18n-pending body { visibility: visible !important; }
+    </style>
+  </noscript>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/configurator.js"></script>
+</body>
+</html>

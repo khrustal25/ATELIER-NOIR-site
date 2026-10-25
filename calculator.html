@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n-content="calc.meta.description" content="Калькулятор ATELIER NOIR: предварительная оценка стоимости дизайн-проекта по площади, пакету и дополнительным услугам. Концептуальный портфолио-проект.">
+  <meta name="theme-color" content="#F7F5F0">
+  <meta name="format-detection" content="telephone=no">
+  <title data-i18n="calc.meta.title">ATELIER NOIR — Рассчитайте стоимость проекта</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATELIER NOIR">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" data-i18n-content="calc.meta.title" content="ATELIER NOIR — Рассчитайте стоимость проекта">
+  <meta property="og:description" data-i18n-content="calc.meta.description" content="Калькулятор ATELIER NOIR: предварительная оценка стоимости дизайн-проекта по площади, пакету и дополнительным услугам. Концептуальный портфолио-проект.">
+  <meta property="og:image" content="assets/images/og/og-calculator.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ATELIER NOIR — Рассчитайте стоимость проекта">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("atelier-noir-language") === "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("i18n-pending");
+        }, 1500);
+      }
+    } catch (error) {
+      /* storage unavailable */
+    }
+    function markFrame(img) {
+      var frame = img && img.closest ? img.closest(".frame") : null;
+      if (!frame) return;
+      frame.classList.add("is-fallback");
+      var key = img.getAttribute("data-i18n-alt");
+      if (key) frame.setAttribute("data-i18n-aria-label", key);
+      var label = key && window.t ? window.t(key) : img.alt;
+      if (label) frame.setAttribute("aria-label", label);
+      img.remove();
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content" data-i18n="skip">К содержанию</a>
+
+  <header class="header">
+    <div class="header__bar">
+      <a class="logo" href="index.html" translate="no">Atelier Noir</a>
+
+      <div class="header__end">
+        <div class="lang" role="group" data-i18n-aria-label="lang.group" aria-label="Язык интерфейса">
+          <button class="lang__btn" type="button" data-lang="ru" lang="ru" aria-pressed="true">RU</button>
+          <span class="lang__slash" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="site-nav" data-i18n-aria-label="nav.main" aria-label="Основная навигация">
+      <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+      <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+      <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+      <a class="link" href="index.html#tools" data-i18n="nav.tools" aria-current="true">Инструменты</a>
+      <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      <p class="nav__note" data-i18n="nav.note">Премиальная студия дизайна интерьеров</p>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="calc" id="calc-app" aria-labelledby="calc-title">
+      <div class="wrap calc__head">
+        <p class="eyebrow" data-i18n="calc.kicker">Рассчитайте стоимость проекта</p>
+        <h1 class="calc__title" id="calc-title" data-i18n="calc.title">Сколько будет стоить ваш проект</h1>
+        <p class="calc__lede" data-i18n="calc.lede">Получите предварительную оценку стоимости дизайн-проекта с учётом площади и выбранных услуг.</p>
+      </div>
+
+      <div class="wrap calc__layout">
+        <div class="calc__params">
+          <fieldset class="cfg-group">
+            <legend data-i18n="calc.property">Тип недвижимости</legend>
+            <div class="cfg-options calc-options--two" data-group="property" role="radiogroup" data-i18n-aria-label="calc.property" aria-label="Тип недвижимости">
+              <button class="cfg-opt" type="button" role="radio" data-calc="property" data-value="apartment" aria-checked="true">
+                <span class="cfg-opt__label" data-i18n="calc.property.apartment">Квартира</span>
+              </button>
+              <button class="cfg-opt" type="button" role="radio" data-calc="property" data-value="house" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.property.house">Дом</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="calc.area">Площадь</legend>
+            <div class="calc-area">
+              <div class="calc-area__field">
+                <input class="calc-area__input" id="calc-area" type="number" inputmode="numeric" min="20" max="500" step="1" value="80" aria-describedby="calc-area-error">
+                <span class="calc-area__unit" data-i18n="calc.unit">м²</span>
+              </div>
+              <div class="calc-area__slider">
+                <span class="calc-area__bound">20</span>
+                <div class="calc-range-wrap">
+                  <span class="calc-range-fill" id="calc-range-fill"></span>
+                  <input class="calc-range" id="calc-range" type="range" min="20" max="500" step="1" value="80" aria-valuemin="20" aria-valuemax="500" data-i18n-aria-label="calc.area" aria-label="Площадь">
+                </div>
+                <span class="calc-area__bound">500</span>
+              </div>
+              <p class="calc-area__error" id="calc-area-error" role="alert" hidden data-i18n="calc.area.error">Укажите площадь от 20 до 500 м².</p>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="calc.package">Пакет</legend>
+            <div class="cfg-options" data-group="package" role="radiogroup" data-i18n-aria-label="calc.package" aria-label="Пакет">
+              <button class="cfg-opt calc-pack" type="button" role="radio" data-calc="package" data-value="essential" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.package.essential">Базовый</span>
+                <span class="calc-pack__rate" data-package-rate="essential"></span>
+                <span class="calc-pack__note" data-i18n="calc.package.essential.note">Ясный проект для спокойного пространства</span>
+              </button>
+              <button class="cfg-opt calc-pack" type="button" role="radio" data-calc="package" data-value="signature" aria-checked="true">
+                <span class="cfg-opt__label" data-i18n="calc.package.signature">Авторский</span>
+                <span class="calc-pack__rate" data-package-rate="signature"></span>
+                <span class="calc-pack__note" data-i18n="calc.package.signature.note">Полный авторский дизайн-проект</span>
+              </button>
+              <button class="cfg-opt calc-pack" type="button" role="radio" data-calc="package" data-value="bespoke" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.package.bespoke">Индивидуальный</span>
+                <span class="calc-pack__rate" data-package-rate="bespoke"></span>
+                <span class="calc-pack__note" data-i18n="calc.package.bespoke.note">Индивидуальная архитектура интерьера</span>
+              </button>
+            </div>
+          </fieldset>
+
+          <fieldset class="cfg-group">
+            <legend data-i18n="calc.extras">Дополнительные услуги</legend>
+            <div class="calc-extras" data-group="extras">
+              <button class="cfg-opt calc-extra" type="button" role="checkbox" data-calc="extra" data-value="visualization" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.extra.visualization">3D-визуализация</span>
+                <span class="calc-pack__rate" data-extra-rate="visualization"></span>
+              </button>
+              <button class="cfg-opt calc-extra" type="button" role="checkbox" data-calc="extra" data-value="supervision" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.extra.supervision">Авторский надзор</span>
+                <span class="calc-pack__rate" data-extra-rate="supervision"></span>
+              </button>
+              <button class="cfg-opt calc-extra" type="button" role="checkbox" data-calc="extra" data-value="furniture" aria-checked="false">
+                <span class="cfg-opt__label" data-i18n="calc.extra.furniture">Подбор мебели</span>
+                <span class="calc-pack__rate" data-extra-rate="furniture"></span>
+              </button>
+            </div>
+          </fieldset>
+
+          <div class="cfg-actions">
+            <button class="btn btn--ghost" id="calc-reset" type="button" data-i18n="calc.reset">Сбросить</button>
+            <button class="btn" id="calc-save" type="button">
+              <span data-i18n="calc.save">Сохранить</span>
+              <span class="btn__line" aria-hidden="true"></span>
+            </button>
+            <button class="btn btn--ghost" id="calc-restore" type="button" data-i18n="calc.restore" disabled>Восстановить</button>
+          </div>
+          <p class="cfg-status" id="calc-status" role="status" aria-live="polite"></p>
+        </div>
+
+        <aside class="calc__result">
+          <div class="calc-card" id="calc-card">
+            <p class="eyebrow" data-i18n="calc.result.kicker">Предварительная оценка</p>
+            <p class="calc-total" id="calc-total">0 ₽</p>
+
+            <dl class="calc-break">
+              <div>
+                <dt data-i18n="calc.area">Площадь</dt>
+                <dd id="out-area">80 м²</dd>
+              </div>
+              <div>
+                <dt data-i18n="calc.property">Тип недвижимости</dt>
+                <dd id="out-property" data-i18n="calc.property.apartment">Квартира</dd>
+              </div>
+              <div>
+                <dt data-i18n="calc.package">Пакет</dt>
+                <dd id="out-package" data-i18n="calc.package.signature">Авторский</dd>
+              </div>
+              <div>
+                <dt data-i18n="calc.base">Базовая стоимость</dt>
+                <dd id="out-base">0 ₽</dd>
+              </div>
+              <div id="row-visualization">
+                <dt data-i18n="calc.extra.visualization">3D-визуализация</dt>
+                <dd id="out-visualization" data-i18n="calc.none">—</dd>
+              </div>
+              <div id="row-supervision">
+                <dt data-i18n="calc.extra.supervision">Авторский надзор</dt>
+                <dd id="out-supervision" data-i18n="calc.none">—</dd>
+              </div>
+              <div id="row-furniture">
+                <dt data-i18n="calc.extra.furniture">Подбор мебели</dt>
+                <dd id="out-furniture" data-i18n="calc.none">—</dd>
+              </div>
+              <div class="calc-break__sum">
+                <dt data-i18n="calc.total">Итого</dt>
+                <dd id="out-total">0 ₽</dd>
+              </div>
+            </dl>
+
+            <p class="calc-disclaimer" data-i18n="calc.disclaimer">Стоимость является ориентировочной. Тарифы используются исключительно для демонстрации возможностей калькулятора.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" data-i18n-aria-label="footer.label" aria-label="Контакт и сведения">
+    <div class="wrap">
+      <a class="footer__logo" href="index.html" translate="no">Atelier Noir</a>
+      <p class="footer__tag" data-i18n="footer.tag">Премиальная студия дизайна интерьеров</p>
+
+      <nav class="footer__nav" data-i18n-aria-label="nav.footer" aria-label="Навигация в подвале">
+        <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+        <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+        <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+        <a class="link" href="index.html#tools" data-i18n="nav.tools">Инструменты</a>
+        <a class="link" href="index.html#approach" data-i18n="nav.approach">Подход</a>
+        <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      </nav>
+
+      <div class="footer__bottom">
+        <p class="footer__legal" data-i18n="footer.legal">Концептуальный проект для портфолио. Все представленные работы являются демонстрационными.</p>
+        <p class="footer__copy" translate="no">© Atelier Noir</p>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      html.i18n-pending body { visibility: visible !important; }
+    </style>
+  </noscript>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/calculator.js"></script>
+</body>
+</html>

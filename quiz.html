@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" data-i18n-content="quiz.meta.description" content="Квиз ATELIER NOIR: шесть вопросов помогут определить интерьерный стиль, который вам ближе. Концептуальный портфолио-проект.">
+  <meta name="theme-color" content="#F7F5F0">
+  <meta name="format-detection" content="telephone=no">
+  <title data-i18n="quiz.meta.title">ATELIER NOIR — Найдите свой интерьерный стиль</title>
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ATELIER NOIR">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" data-i18n-content="quiz.meta.title" content="ATELIER NOIR — Найдите свой интерьерный стиль">
+  <meta property="og:description" data-i18n-content="quiz.meta.description" content="Квиз ATELIER NOIR: шесть вопросов помогут определить интерьерный стиль, который вам ближе. Концептуальный портфолио-проект.">
+  <meta property="og:image" content="assets/images/og/og-quiz.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="ATELIER NOIR — Найдите свой интерьерный стиль">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <script>
+    document.documentElement.classList.add("js");
+    try {
+      if (localStorage.getItem("atelier-noir-language") === "en") {
+        document.documentElement.classList.add("i18n-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("i18n-pending");
+        }, 1500);
+      }
+      var savedQuiz = JSON.parse(localStorage.getItem("atelier-noir-quiz") || "null");
+      if (savedQuiz && savedQuiz.styleId) {
+        document.documentElement.classList.add("quiz-result-pending");
+        setTimeout(function () {
+          document.documentElement.classList.remove("quiz-result-pending");
+        }, 1500);
+      }
+    } catch (error) {
+      /* storage unavailable */
+    }
+    function markFrame(img) {
+      var frame = img && img.closest ? img.closest(".frame") : null;
+      if (!frame) return;
+      frame.classList.add("is-fallback");
+      var key = img.getAttribute("data-i18n-alt");
+      if (key) frame.setAttribute("data-i18n-aria-label", key);
+      var label = key && window.t ? window.t(key) : img.alt;
+      if (label) frame.setAttribute("aria-label", label);
+      img.remove();
+    }
+  </script>
+</head>
+<body>
+  <a class="skip" href="#content" data-i18n="skip">К содержанию</a>
+
+  <header class="header">
+    <div class="header__bar">
+      <a class="logo" href="index.html" translate="no">Atelier Noir</a>
+
+      <div class="header__end">
+        <div class="lang" role="group" data-i18n-aria-label="lang.group" aria-label="Язык интерфейса">
+          <button class="lang__btn" type="button" data-lang="ru" lang="ru" aria-pressed="true">RU</button>
+          <span class="lang__slash" aria-hidden="true">/</span>
+          <button class="lang__btn" type="button" data-lang="en" lang="en" aria-pressed="false">EN</button>
+        </div>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Открыть меню">
+          <span class="nav-toggle__lines" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+
+    <nav class="nav" id="site-nav" data-i18n-aria-label="nav.main" aria-label="Основная навигация">
+      <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+      <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+      <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+      <a class="link" href="index.html#tools" data-i18n="nav.tools" aria-current="true">Инструменты</a>
+      <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      <p class="nav__note" data-i18n="nav.note">Премиальная студия дизайна интерьеров</p>
+    </nav>
+  </header>
+
+  <main id="content" tabindex="-1">
+    <section class="quiz" id="quiz" aria-labelledby="quiz-title">
+      <div class="wrap quiz__head">
+        <p class="eyebrow" data-i18n="quiz.kicker">Найдите свой стиль</p>
+        <h1 class="quiz__title" id="quiz-title" tabindex="-1" data-i18n="quiz.title">Интерьер, который похож на вас</h1>
+        <p class="quiz__lede" data-i18n="quiz.lede">Несколько вопросов помогут определить эстетику пространства, которая вам ближе.</p>
+      </div>
+
+      <div class="wrap quiz__flow" id="quiz-flow">
+        <div class="quiz__progress" id="quiz-progress">
+          <p class="quiz__count">
+            <span data-i18n="quiz.progress">Вопрос</span>
+            <span class="quiz__fraction"><span id="quiz-current">01</span><span aria-hidden="true"> / </span><span>06</span></span>
+          </p>
+          <div class="quiz__track" id="quiz-track" role="progressbar" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" aria-valuetext="Вопрос 1 / 6">
+            <span class="quiz__fill" id="quiz-fill"></span>
+          </div>
+        </div>
+
+        <div class="quiz__stage" id="quiz-stage">
+          <h2 class="quiz__question" id="quiz-question" tabindex="-1" data-i18n="quiz.q.atmosphere">Какая атмосфера вам ближе?</h2>
+          <div class="quiz__options" id="quiz-options" role="group" aria-labelledby="quiz-question"></div>
+        </div>
+
+        <p class="quiz__error" id="quiz-error" role="alert" hidden data-i18n="quiz.error">Выберите вариант, чтобы продолжить.</p>
+
+        <div class="quiz__actions">
+          <button class="btn btn--ghost" id="quiz-back" type="button" data-i18n="quiz.back" disabled>Назад</button>
+          <button class="btn" id="quiz-next" type="button">
+            <span id="quiz-next-label" data-i18n="quiz.next">Далее</span>
+            <span class="btn__line" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="result" id="result" hidden aria-labelledby="result-title">
+      <div class="wrap result__layout">
+        <figure class="result__figure">
+          <div class="frame frame--result" id="result-frame">
+            <p class="frame__note" aria-hidden="true">style.webp</p>
+          </div>
+        </figure>
+
+        <div class="result__copy">
+          <p class="eyebrow" data-i18n="quiz.result.kicker">Ваш стиль</p>
+          <h1 class="result__title" id="result-title" tabindex="-1" data-i18n="quiz.style.warm-minimalism.name">Тёплый минимализм</h1>
+          <p class="result__text" id="result-text" data-i18n="quiz.style.warm-minimalism.text">Пространство, в котором тепло материалов важнее декора. Свет, мягкие поверхности и немного тщательно выбранных вещей.</p>
+
+          <h2 class="result__label" data-i18n="quiz.palette">Палитра</h2>
+          <ul class="palette" id="result-palette"></ul>
+
+          <h2 class="result__label" data-i18n="quiz.materials">Материалы</h2>
+          <ul class="materials" id="result-materials"></ul>
+
+          <div class="result__actions">
+            <a class="btn" href="configurator.html">
+              <span data-i18n="quiz.config">Создать свой интерьер</span>
+              <span class="btn__line" aria-hidden="true"></span>
+            </a>
+            <button class="btn btn--ghost" id="quiz-restart" type="button" data-i18n="quiz.restart">Пройти ещё раз</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer" id="contact" data-i18n-aria-label="footer.label" aria-label="Контакт и сведения">
+    <div class="wrap">
+      <a class="footer__logo" href="index.html" translate="no">Atelier Noir</a>
+      <p class="footer__tag" data-i18n="footer.tag">Премиальная студия дизайна интерьеров</p>
+
+      <nav class="footer__nav" data-i18n-aria-label="nav.footer" aria-label="Навигация в подвале">
+        <a class="link" href="index.html" data-i18n="nav.home">Главная</a>
+        <a class="link" href="index.html#studio" data-i18n="nav.studio">Студия</a>
+        <a class="link" href="index.html#projects" data-i18n="nav.projects">Проекты</a>
+        <a class="link" href="index.html#tools" data-i18n="nav.tools">Инструменты</a>
+        <a class="link" href="index.html#approach" data-i18n="nav.approach">Подход</a>
+        <a class="link" href="index.html#contact" data-i18n="nav.contact">Контакт</a>
+      </nav>
+
+      <div class="footer__bottom">
+        <p class="footer__legal" data-i18n="footer.legal">Концептуальный проект для портфолио. Все представленные работы являются демонстрационными.</p>
+        <p class="footer__copy" translate="no">© Atelier Noir</p>
+      </div>
+    </div>
+  </footer>
+
+  <noscript>
+    <style>
+      .reveal { opacity: 1 !important; transform: none !important; }
+      html.i18n-pending body { visibility: visible !important; }
+      html.quiz-result-pending #quiz,
+      html.quiz-result-pending #result { visibility: visible !important; }
+    </style>
+  </noscript>
+  <script src="js/translations.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/quiz.js"></script>
+</body>
+</html>
