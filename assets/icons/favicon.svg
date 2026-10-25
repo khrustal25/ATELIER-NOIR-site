@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="ATELIER NOIR">
+  <rect width="32" height="32" rx="3" fill="#F7F5F0"/>
+  <g fill="none" stroke="#292824" stroke-width="1.6" stroke-linejoin="round">
+    <path d="M4.5 23 10 8l5.5 15"/>
+    <path d="M6.6 17.6h6.8"/>
+    <path d="M17.5 23V8l10 15V8"/>
+  </g>
+  <path d="M4.5 26.5h23" stroke="#8B7665" stroke-width="1"/>
+</svg>
